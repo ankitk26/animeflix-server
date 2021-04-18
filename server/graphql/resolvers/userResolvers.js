@@ -54,6 +54,8 @@ module.exports = {
         maxAge: 3600 * 1000,
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
+        sameSite: "strict",
+        path: "/",
       });
 
       return user;
