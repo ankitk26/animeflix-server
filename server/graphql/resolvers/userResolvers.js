@@ -51,10 +51,9 @@ module.exports = {
       const token = generateToken(user);
 
       res.cookie("token", token, {
-        maxAge: 3600 * 1000,
         httpOnly: true,
+        maxAge: 3600 * 1000,
         secure: process.env.NODE_ENV === "production",
-        sameSite: "strict",
         path: "/",
       });
 
@@ -91,11 +90,11 @@ module.exports = {
       const savedUser = await newUser.save();
 
       const token = generateToken(savedUser);
+
       res.cookie("token", token, {
         maxAge: 3600 * 1000,
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
-        sameSite: "strict",
         path: "/",
       });
 
