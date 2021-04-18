@@ -55,6 +55,7 @@ module.exports = {
         maxAge: 3600 * 1000,
         secure: process.env.NODE_ENV === "production",
         path: "/",
+        sameSite: "lax",
       });
 
       return user;
@@ -96,6 +97,7 @@ module.exports = {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
         path: "/",
+        sameSite: "lax",
       });
 
       return savedUser;
