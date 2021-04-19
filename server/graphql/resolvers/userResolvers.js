@@ -1,10 +1,8 @@
-const {
-  UserInputError,
-  AuthenticationError,
-} = require("apollo-server-express");
+const { UserInputError } = require("apollo-server-express");
 const User = require("../../models/user");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+
 const {
   handleLoginErrors,
   handleRegisterErrors,
@@ -53,8 +51,9 @@ module.exports = {
       res.cookie("token", token, {
         httpOnly: true,
         maxAge: 3600 * 1000,
-        sameSite: true,
+        sameSite: "strict",
         secure: process.env.NODE_ENV === "production",
+        path: "/",
       });
 
       return user;
@@ -93,9 +92,10 @@ module.exports = {
 
       res.cookie("token", token, {
         maxAge: 3600 * 1000,
-        sameSite: true,
+        sameSite: "strict",
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
+        path: "/",
       });
 
       return savedUser;

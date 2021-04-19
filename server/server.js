@@ -24,12 +24,14 @@ const server = new ApolloServer({
 app.use(
   cors({
     credentials: true,
-    origin: "https://suspicious-jones-949125.netlify.app",
+    origin: "http://localhost:3000",
   })
 );
 
 // Parse cookies from req object
 app.use(cookieParser());
+
+app.use(express.json());
 
 // Set user id on req object
 app.use((req, _, next) => {
@@ -51,10 +53,10 @@ mongoose
     useCreateIndex: true,
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    useFindAndModify: false,
   })
   .then(() => {
     console.log("Database connected");
-    // Start server on port 5000
     app.listen(port, () => console.log(`Server started at port ${port}`));
   })
   .catch((err) => console.log(err));
