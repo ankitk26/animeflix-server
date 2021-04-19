@@ -24,7 +24,7 @@ const server = new ApolloServer({
 app.use(
   cors({
     credentials: true,
-    origin: "https://animeflix-client.vercel.app",
+    origin: "*",
   })
 );
 
