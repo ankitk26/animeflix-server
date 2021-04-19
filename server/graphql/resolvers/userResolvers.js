@@ -55,6 +55,7 @@ module.exports = {
         maxAge: 3600 * 1000,
         secure: process.env.NODE_ENV === "production",
         path: "/",
+        domain: "https://suspicious-jones-949125.netlify.app/",
         sameSite: "lax",
       });
 
@@ -96,6 +97,7 @@ module.exports = {
         maxAge: 3600 * 1000,
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
+        domain: "https://suspicious-jones-949125.netlify.app/",
         path: "/",
         sameSite: "lax",
       });
