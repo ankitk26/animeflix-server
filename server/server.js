@@ -24,7 +24,7 @@ const server = new ApolloServer({
 app.use(
   cors({
     credentials: true,
-    origin: "https://suspicious-jones-949125.netlify.app/",
+    origin: "https://suspicious-jones-949125.netlify.app",
   })
 );
 
