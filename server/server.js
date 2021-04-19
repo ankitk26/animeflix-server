@@ -21,7 +21,12 @@ const server = new ApolloServer({
 });
 
 // Middlwares
-app.use(cors());
+app.use(
+  cors({
+    credentials: true,
+    origin: "https://suspicious-jones-949125.netlify.app/",
+  })
+);
 
 // Parse cookies from req object
 app.use(cookieParser());
