@@ -53,6 +53,7 @@ module.exports = {
       res.cookie("token", token, {
         httpOnly: true,
         maxAge: 3600 * 1000,
+        sameSite: true,
         secure: process.env.NODE_ENV === "production",
       });
 
@@ -92,6 +93,7 @@ module.exports = {
 
       res.cookie("token", token, {
         maxAge: 3600 * 1000,
+        sameSite: true,
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
       });
